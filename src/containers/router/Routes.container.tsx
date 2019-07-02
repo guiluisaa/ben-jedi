@@ -2,14 +2,25 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import toLoadable from '@/components/loadable/toLoadable';
+import Layout from '@/components/layout/Layout.component';
 
 // Views
 const IndexView = toLoadable(() => import('@/views/index/Index.view'));
+const DashboardView = toLoadable(() =>
+  import('@/views/dashboard/Dashboard.view')
+);
+const CharactersView = toLoadable(() =>
+  import('@/views/characters/Characters.view')
+);
 
 const Routes: React.FunctionComponent = () => (
   <Router>
     <Switch>
-      <Route exact path="/" component={IndexView} />
+      <Layout>
+        <Route exact path="/" component={IndexView} />
+        <Route exact path="/dashboard" component={DashboardView} />
+        <Route exact path="/characters" component={CharactersView} />
+      </Layout>
     </Switch>
   </Router>
 );

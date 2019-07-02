@@ -11,7 +11,7 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    ns: ['jedi'],
+    ns: ['jedi', 'menu'],
     backend: {
       backends: [
         LocalStorageBackend, // Primary

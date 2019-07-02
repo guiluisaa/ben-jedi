@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
+import { Redirect } from 'react-router-dom';
 
-const Index: FunctionComponent = () => <>Index</>;
+const IndexView: FunctionComponent = () => <Redirect to="/dashboard" />;
 
-export default Index;
+export default IndexView;
