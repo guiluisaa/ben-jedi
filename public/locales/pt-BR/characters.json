@@ -1,0 +1,11 @@
+{
+  "movie_characters": "Personagens dos Filmes",
+  "table": {
+    "name": "Nome",
+    "height": "Altura",
+    "gender": "Sexo",
+    "birth_year": "Ano de Nascimento",
+    "homeworld": "Planeta Natal",
+    "species": "Especies"
+  }
+}

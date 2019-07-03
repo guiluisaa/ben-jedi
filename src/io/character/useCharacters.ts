@@ -11,7 +11,7 @@ import { fromUrlToQuery } from '@/utils';
 const useCharacters = (page: number) => {
   const [t] = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
-  const { characters } = useSelector<AppState, CharacterState>(
+  const { characters, meta } = useSelector<AppState, CharacterState>(
     ({ character }) => character
   );
 
@@ -58,7 +58,7 @@ const useCharacters = (page: number) => {
       });
   }, []);
 
-  return { isLoading, characters };
+  return { isLoading, characters, meta };
 };
 
 export default useCharacters;

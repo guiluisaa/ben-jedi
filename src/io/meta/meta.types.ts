@@ -1,6 +1,6 @@
 export type Meta = {
-  page: string | number;
+  page: number;
   count: number;
-  previous: string | number | null;
-  next: string | number | null;
+  previous: number | null;
+  next: number | null;
 };
