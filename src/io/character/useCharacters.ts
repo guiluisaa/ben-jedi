@@ -6,8 +6,9 @@ import { message } from 'antd';
 import { CharacterState, GET_CHARACTERS } from '@/io/character/character.types';
 import { AppState } from '@/io/root.reducer';
 import api from '@/io/api';
+import { fromUrlToQuery } from '@/utils';
 
-const useCharacters = () => {
+const useCharacters = (page: number) => {
   const [t] = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const { characters } = useSelector<AppState, CharacterState>(
@@ -19,14 +20,40 @@ const useCharacters = () => {
   useEffect(() => {
     setIsLoading(true);
     api
-      .get('/people')
+      .get('/people', {
+        params: {
+          page
+        }
+      })
       .then(res => res.data)
       .then(data => {
         setIsLoading(false);
-        dispatch({ type: GET_CHARACTERS, payload: data.results });
+
+        const { page: previous } = fromUrlToQuery(
+          data.previous ? data.previous : '',
+          'people'
+        );
+        const { page: next } = fromUrlToQuery(
+          data.next ? data.next : '',
+          'people'
+        );
+
+        dispatch({
+          type: GET_CHARACTERS,
+          payload: {
+            characters: data.results,
+            meta: {
+              page: page ? page : 1,
+              count: data.count,
+              previous: Number(previous),
+              next: Number(next)
+            }
+          }
+        });
       })
       .catch(error => {
         setIsLoading(false);
+        console.log(error);
         error && message.error(t('jedi:errors.message'));
       });
   }, []);

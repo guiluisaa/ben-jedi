@@ -6,7 +6,13 @@ import {
 } from './character.types';
 
 const initialState: CharacterState = {
-  characters: []
+  characters: [],
+  meta: {
+    page: 1,
+    count: 0,
+    previous: null,
+    next: null
+  }
 };
 
 const characterReducer = (
@@ -22,7 +28,8 @@ const characterReducer = (
     case GET_CHARACTERS:
       return {
         ...state,
-        characters: action.payload
+        characters: action.payload.characters,
+        meta: action.payload.meta
       };
     default:
       return state;
