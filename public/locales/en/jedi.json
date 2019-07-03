@@ -1,3 +1,6 @@
 {
-  "jedi": "Jedi"
+  "jedi": "Jedi",
+  "errors": {
+    "message": "Something went wrong, please try again later."
+  }
 }

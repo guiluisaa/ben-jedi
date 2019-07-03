@@ -5,7 +5,6 @@ export type Character = {
 };
 
 export type CharacterState = {
-  isLoading: boolean;
   characters: Character[];
 };
 
