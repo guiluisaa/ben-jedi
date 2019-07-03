@@ -1,0 +1,11 @@
+{
+  "movie_characters": "Movie Characters",
+  "table": {
+    "name": "Name",
+    "height": "Height",
+    "gender": "Gender",
+    "birth_year": "Birth Year",
+    "homeworld": "Homeworld",
+    "species": "Species"
+  }
+}
