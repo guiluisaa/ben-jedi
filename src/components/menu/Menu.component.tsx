@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import { Menu as AntMenu } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 
 const Container = styled(AntMenu).attrs({
   theme: 'dark',
@@ -12,19 +12,19 @@ const Container = styled(AntMenu).attrs({
   display: inline-block;
 `;
 
-const Menu: FunctionComponent = () => {
+const Menu = withRouter(({ location: { pathname } }) => {
   const [t] = useTranslation();
 
   return (
-    <Container defaultSelectedKeys={['dashboard']}>
-      <AntMenu.Item key="dashboard">
+    <Container defaultSelectedKeys={[pathname]}>
+      <AntMenu.Item key="/dashboard">
         <Link to="/dashboard">{t('menu:dashboard')}</Link>
       </AntMenu.Item>
-      <AntMenu.Item key="characters">
+      <AntMenu.Item key="/characters">
         <Link to="/characters">{t('menu:characters')}</Link>
       </AntMenu.Item>
     </Container>
   );
-};
+});
 
 export default Menu;
