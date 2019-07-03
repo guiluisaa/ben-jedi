@@ -1,3 +1,5 @@
+import { Meta } from '../meta/meta.types';
+
 export type Character = {
   name: string;
   height: number;
@@ -6,6 +8,7 @@ export type Character = {
 
 export type CharacterState = {
   characters: Character[];
+  meta: Meta;
 };
 
 export const SET_LOADING_CHARACTERS = 'SET_LOADING_CHARACTERS';
@@ -18,7 +21,10 @@ type setLoadingCharacter = {
 
 type getCharacters = {
   type: typeof GET_CHARACTERS;
-  payload: Character[];
+  payload: {
+    characters: Character[];
+    meta: Meta;
+  };
 };
 
 export type CharacterActionTypes = setLoadingCharacter | getCharacters;
