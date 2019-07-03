@@ -1,5 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
-const CharactersView: FunctionComponent = () => <>Characters</>;
+import Characters from '@/containers/characters/Characters.container';
+
+const CharactersView: FunctionComponent = () => <Characters />;
 
 export default CharactersView;

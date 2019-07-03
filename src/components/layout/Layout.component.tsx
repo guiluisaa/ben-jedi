@@ -12,6 +12,7 @@ const Container = styled(AntLayout.Content)`
 
 const Content = styled.div`
   background-color: #fff;
+  border-radius: 2px;
   padding: 24px;
   min-height: 300px;
   max-width: ${({ theme }) => theme.layout.maxWidth};

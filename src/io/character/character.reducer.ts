@@ -6,8 +6,7 @@ import {
 } from './character.types';
 
 const initialState: CharacterState = {
-  characters: [],
-  isLoading: false
+  characters: []
 };
 
 const characterReducer = (
