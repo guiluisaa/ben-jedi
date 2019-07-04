@@ -5,6 +5,7 @@ import { ColumnProps } from 'antd/lib/table';
 
 import { Character } from '@/io/character/character.types';
 import { Meta } from '@/io/meta/meta.types';
+import Planet from '@/containers/planet/Planet.container';
 
 type CharactersComponentProps = {
   isLoading: boolean;
@@ -45,7 +46,8 @@ const CharactersComponent: FunctionComponent<CharactersComponentProps> = ({
     },
     {
       title: t('characters:table.homeworld'),
-      dataIndex: 'homeworld'
+      dataIndex: 'homeworld',
+      render: (planetId: number) => <Planet planetId={planetId} />
     },
     {
       title: t('characters:table.species'),

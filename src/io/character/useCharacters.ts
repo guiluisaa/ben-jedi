@@ -54,7 +54,6 @@ const useCharacters = (page: number) => {
       })
       .catch(error => {
         setIsLoading(false);
-        console.log(error);
         error && message.error(t('jedi:errors.message'));
       });
   }, []);
