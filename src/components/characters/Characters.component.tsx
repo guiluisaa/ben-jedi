@@ -6,6 +6,7 @@ import { ColumnProps } from 'antd/lib/table';
 import { Character } from '@/io/character/character.types';
 import { Meta } from '@/io/meta/meta.types';
 import Planet from '@/containers/planet/Planet.container';
+import Specie from '@/containers/specie/Specie.container';
 
 type CharactersComponentProps = {
   isLoading: boolean;
@@ -52,8 +53,8 @@ const CharactersComponent: FunctionComponent<CharactersComponentProps> = ({
     {
       title: t('characters:table.species'),
       dataIndex: 'species',
-      render: (species: string[]) =>
-        species.map(specie => <Tag key={specie}>{specie}</Tag>)
+      render: (species: number[]) =>
+        species.map(specie => <Specie key={specie} specieId={specie} />)
     }
   ];
 
