@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { Spin, Tag } from 'antd';
 
-import { Specie } from '@/io/specie/specie.types';
+import { Specie } from '@/io/redux/specie/specie.types';
 
 type SpecieComponentProps = {
   specie: Specie;

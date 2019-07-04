@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { Typography, Table, Tag } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 
-import { Character } from '@/io/character/character.types';
-import { Meta } from '@/io/meta/meta.types';
+import { Character } from '@/io/redux/character/character.types';
+import { Meta } from '@/io/redux/meta/meta.types';
 import Planet from '@/containers/planet/Planet.container';
 import Specie from '@/containers/specie/Specie.container';
 

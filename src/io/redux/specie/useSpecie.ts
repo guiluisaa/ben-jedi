@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { message } from 'antd';
 
 import api from '@/io/api';
-import { AppState } from '@/io/root.reducer';
+import { AppState } from '@/io/redux/root.reducer';
 import { SpecieState, GET_SPECIE } from './specie.types';
 import { specieSerializer } from './specie.serializer';
 

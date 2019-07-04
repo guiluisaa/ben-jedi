@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { hot } from 'react-hot-loader';
 import { ThemeProvider } from 'styled-components';
 
-import store from './io/store';
+import store from './io/redux/store';
 import theme from './theme';
 import Routes from './containers/router/Routes.container';
 

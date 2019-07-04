@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import PlanetComponent from '@/components/planet/Planet.component';
-import usePlanet from '@/io/planet/usePlanet';
+import usePlanet from '@/io/redux/planet/usePlanet';
 
 type PlanetProps = {
   planetId: number;
