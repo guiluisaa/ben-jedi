@@ -1,5 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux';
+import { persistStore, persistReducer, PersistConfig } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
+
 import rootReducer from './root.reducer';
 
 const initialState = {};
@@ -11,10 +14,19 @@ const reduxDevTools =
   (window as any).__REDUX_DEVTOOLS_EXTENSION__();
 if (process.env.ENVIRONMENT !== 'live') composeOptions.push(reduxDevTools);
 
+const persistConfig: PersistConfig = {
+  key: 'root',
+  storage
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 const store = createStore(
-  rootReducer,
+  persistedReducer,
   initialState,
   compose(...composeOptions)
 );
 
-export default store;
+const persistor = persistStore(store);
+
+export { store, persistor };
