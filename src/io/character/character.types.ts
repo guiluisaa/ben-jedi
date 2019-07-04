@@ -1,9 +1,13 @@
 import { Meta } from '../meta/meta.types';
 
 export type Character = {
+  id: number;
   name: string;
   height: number;
+  birth_year: string;
   gender: 'n/a' | 'male' | 'female';
+  homeworld: number[];
+  species: number[];
 };
 
 export type CharacterState = {

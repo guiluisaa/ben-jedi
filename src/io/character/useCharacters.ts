@@ -6,7 +6,8 @@ import { message } from 'antd';
 import { CharacterState, GET_CHARACTERS } from '@/io/character/character.types';
 import { AppState } from '@/io/root.reducer';
 import api from '@/io/api';
-import { fromUrlToQuery } from '@/utils';
+import { fromUrlToQuery, fromUrlToId } from '@/utils';
+import { charactersSerializer } from './character.serializer';
 
 const useCharacters = (page: number) => {
   const [t] = useTranslation();
@@ -41,7 +42,7 @@ const useCharacters = (page: number) => {
         dispatch({
           type: GET_CHARACTERS,
           payload: {
-            characters: data.results,
+            characters: charactersSerializer(data.results),
             meta: {
               page: page ? page : 1,
               count: data.count,

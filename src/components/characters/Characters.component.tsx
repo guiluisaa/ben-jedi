@@ -5,7 +5,6 @@ import { ColumnProps } from 'antd/lib/table';
 
 import { Character } from '@/io/character/character.types';
 import { Meta } from '@/io/meta/meta.types';
-import { fromUrlToId } from '@/utils';
 
 type CharactersComponentProps = {
   isLoading: boolean;
@@ -25,9 +24,8 @@ const CharactersComponent: FunctionComponent<CharactersComponentProps> = ({
   const columns: ColumnProps<Character>[] = [
     {
       title: 'ID',
-      dataIndex: 'url',
-      key: 'url',
-      render: (url: string) => fromUrlToId(url, 'people')
+      dataIndex: 'id',
+      key: 'id'
     },
     {
       title: t('characters:table.name'),
@@ -47,14 +45,13 @@ const CharactersComponent: FunctionComponent<CharactersComponentProps> = ({
     },
     {
       title: t('characters:table.homeworld'),
-      dataIndex: 'homeworld',
-      render: (url: string) => fromUrlToId(url, 'planets')
+      dataIndex: 'homeworld'
     },
     {
       title: t('characters:table.species'),
       dataIndex: 'species',
-      render: (urls: string[]) =>
-        urls.map(url => <Tag key={url}>{fromUrlToId(url, 'species')}</Tag>)
+      render: (species: string[]) =>
+        species.map(specie => <Tag key={specie}>{specie}</Tag>)
     }
   ];
 
@@ -68,7 +65,7 @@ const CharactersComponent: FunctionComponent<CharactersComponentProps> = ({
         loading={isLoading}
         columns={columns}
         dataSource={characters}
-        rowKey="url"
+        rowKey="id"
         pagination={{
           defaultCurrent: 1,
           current: meta.page,
