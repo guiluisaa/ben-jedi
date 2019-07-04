@@ -1,5 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
-const DashboardView: FunctionComponent = () => <>Dashboard</>;
+import Dashboard from '@/containers/dashboard/Dashboard.container';
+
+const DashboardView: FunctionComponent = () => <Dashboard />;
 
 export default DashboardView;
