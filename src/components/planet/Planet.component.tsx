@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { Spin } from 'antd';
 
-import { Planet } from '@/io/planet/planet.types';
+import { Planet } from '@/io/redux/planet/planet.types';
 
 type PlanetComponentProps = {
   planet: Planet;

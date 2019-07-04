@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
 import SpecieComponent from '@/components/specie/Specie.component';
-import useSpecie from '@/io/specie/useSpecie';
+import useSpecie from '@/io/redux/specie/useSpecie';
 
 type SpecieProps = {
   specieId: number;

@@ -3,8 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { message } from 'antd';
 
-import { CharacterState, GET_CHARACTERS } from '@/io/character/character.types';
-import { AppState } from '@/io/root.reducer';
+import {
+  CharacterState,
+  GET_CHARACTERS
+} from '@/io/redux/character/character.types';
+import { AppState } from '@/io/redux/root.reducer';
 import api from '@/io/api';
 import { fromUrlToQuery, fromUrlToId } from '@/utils';
 import { charactersSerializer } from './character.serializer';

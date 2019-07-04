@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { parse } from 'query-string';
 
 import CharactersComponent from '@/components/characters/Characters.component';
-import useCharacters from '@/io/character/useCharacters';
+import useCharacters from '@/io/redux/character/useCharacters';
 import { withRouter } from 'react-router';
 
 const Characters = withRouter(({ history, location }) => {
