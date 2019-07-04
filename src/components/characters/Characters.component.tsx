@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Typography, Table, Tag } from 'antd';
+import { Typography, Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 
 import { Character } from '@/io/redux/character/character.types';

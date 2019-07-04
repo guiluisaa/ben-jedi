@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { parse } from 'query-string';
 
 import CharactersComponent from '@/components/characters/Characters.component';
