@@ -21,23 +21,19 @@ const useSpecie = (specieId: number) => {
 
   useEffect(() => {
     if (specie) return;
-
     setIsLoading(true);
+
     api
       .get(`/species/${specieId}`)
       .then(res => res.data)
       .then(data => {
-        setIsLoading(false);
         dispatch({
           type: GET_SPECIE,
           payload: specieSerializer(data)
         });
       })
-      .catch(error => {
-        setIsLoading(false);
-        console.log(error);
-        error && message.error(t('jedi:errors.message'));
-      });
+      .catch(error => error && message.error(t('jedi:errors.message')))
+      .finally(() => setIsLoading(false));
   }, []);
 
   return { isLoading, specie };
