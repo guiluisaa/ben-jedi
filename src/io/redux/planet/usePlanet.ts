@@ -21,23 +21,19 @@ const usePlanet = (planetId: number) => {
 
   useEffect(() => {
     if (planet) return;
-
     setIsLoading(true);
+
     api
       .get(`/planets/${planetId}`)
       .then(res => res.data)
       .then(data => {
-        setIsLoading(false);
         dispatch({
           type: GET_PLANET,
           payload: planetSerializer(data)
         });
       })
-      .catch(error => {
-        setIsLoading(false);
-        console.log(error);
-        error && message.error(t('jedi:errors.message'));
-      });
+      .catch(error => error && message.error(t('jedi:errors.message')))
+      .finally(() => setIsLoading(false));
   }, []);
 
   return { isLoading, planet };
