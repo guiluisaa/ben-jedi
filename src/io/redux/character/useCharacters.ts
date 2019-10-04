@@ -9,10 +9,10 @@ import {
 } from '@/io/redux/character/character.types';
 import { AppState } from '@/io/redux/root.reducer';
 import api from '@/io/api';
-import { fromUrlToQuery, fromUrlToId } from '@/utils';
+import { fromUrlToQuery } from '@/utils';
 import { charactersSerializer } from './character.serializer';
 
-const useCharacters = (page: number) => {
+const useCharacters = () => {
   const [t] = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const { characters, meta } = useSelector<AppState, CharacterState>(
@@ -21,8 +21,9 @@ const useCharacters = (page: number) => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  const getCharacters = (page: number) => {
     setIsLoading(true);
+
     api
       .get('/people', {
         params: {
@@ -31,8 +32,6 @@ const useCharacters = (page: number) => {
       })
       .then(res => res.data)
       .then(data => {
-        setIsLoading(false);
-
         const { page: previous } = fromUrlToQuery(
           data.previous ? data.previous : '',
           'people'
@@ -55,13 +54,16 @@ const useCharacters = (page: number) => {
           }
         });
       })
-      .catch(error => {
-        setIsLoading(false);
-        error && message.error(t('jedi:errors.message'));
-      });
-  }, []);
+      .catch(error => error && message.error(t('jedi:errors.message')))
+      .finally(() => setIsLoading(false));
+  };
 
-  return { isLoading, characters, meta };
+  return {
+    meta,
+    isLoading,
+    getCharacters,
+    characters
+  };
 };
 
 export default useCharacters;

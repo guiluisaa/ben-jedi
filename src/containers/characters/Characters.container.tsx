@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { parse } from 'query-string';
 
 import CharactersComponent from '@/components/characters/Characters.component';
@@ -7,9 +7,11 @@ import { withRouter } from 'react-router';
 
 const Characters = withRouter(({ history, location }) => {
   const { page } = parse(location.search);
-  const { characters, meta, isLoading } = useCharacters(
-    page && Number(page) ? Number(page) : 1
-  );
+  const { getCharacters,characters, meta, isLoading } = useCharacters();
+
+  useEffect(() => {
+    getCharacters(page && Number(page) ? Number(page) : 1)
+  }, [])
 
   const changePage = (page: number) =>
     history.push({
