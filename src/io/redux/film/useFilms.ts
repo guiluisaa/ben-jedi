@@ -9,25 +9,20 @@ import { AppState } from '@/io/redux/root.reducer';
 import { fromUrlToQuery } from '@/utils';
 import { filmsSerializer } from './film.serializer';
 
-const useFilms = (page: number) => {
+const useFilms = () => {
   const [t] = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const { films, meta } = useSelector<AppState, FilmState>(({ film }) => film);
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  const getFilms = (page: number) => {
     setIsLoading(true);
+
     api
-      .get('/films', {
-        params: {
-          page
-        }
-      })
+      .get('/films', { params: { page } })
       .then(res => res.data)
       .then(data => {
-        setIsLoading(false);
-
         const { page: previous } = fromUrlToQuery(
           data.previous ? data.previous : '',
           'films'
@@ -50,13 +45,16 @@ const useFilms = (page: number) => {
           }
         });
       })
-      .catch(error => {
-        setIsLoading(false);
-        error && message.error(t('jedi:errors.message'));
-      });
-  }, []);
+      .catch(error => error && message.error(t('jedi:errors.message')))
+      .finally(() => setIsLoading(false));
+  };
 
-  return { isLoading, films, meta };
+  return {
+    meta,
+    isLoading,
+    getFilms,
+    films
+  };
 };
 
 export default useFilms;
