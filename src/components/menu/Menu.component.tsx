@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { Menu as AntMenu } from 'antd';
 import { useTranslation } from 'react-i18next';
@@ -12,8 +12,9 @@ const Container = styled(AntMenu).attrs({
   display: inline-block;
 `;
 
-const Menu = withRouter(({ location: { pathname } }) => {
+const Menu: FunctionComponent = () => {
   const [t] = useTranslation();
+  const { pathname } = useLocation();
 
   return (
     <Container defaultSelectedKeys={[pathname]}>
@@ -25,6 +26,6 @@ const Menu = withRouter(({ location: { pathname } }) => {
       </AntMenu.Item>
     </Container>
   );
-});
+};
 
 export default Menu;
