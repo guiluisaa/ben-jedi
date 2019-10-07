@@ -17,6 +17,6 @@ lerna-debug.log
 *.gen
 **/*.gen
 **/*.gen.*
-# **/package-lock.json
-# **/*/package-lock.json
-# package-lock.json
+**/package-lock.json
+**/*/package-lock.json
+package-lock.json
