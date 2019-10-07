@@ -29,7 +29,7 @@ const toLoadable = <T extends ComponentType<any>>(factory: Factory<T>) => ({
   const Component = lazy(factory);
 
   return (
-    <Suspense fallback={<>Loading</>}>
+    <Suspense fallback={<>Loading...</>}>
       <Component {...props} />
     </Suspense>
   );

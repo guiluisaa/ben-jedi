@@ -25,7 +25,7 @@ const usePlanet = (planetId: number) => {
 
     api
       .get(`/planets/${planetId}`)
-      .then(res => res.data)
+      .then(({ data }) => data)
       .then(data => {
         dispatch({
           type: GET_PLANET,

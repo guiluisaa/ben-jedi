@@ -21,7 +21,7 @@ const useFilms = () => {
 
     api
       .get('/films', { params: { page } })
-      .then(res => res.data)
+      .then(({ data }) => data)
       .then(data => {
         const { page: previous } = fromUrlToQuery(
           data.previous ? data.previous : '',
@@ -49,12 +49,7 @@ const useFilms = () => {
       .finally(() => setIsLoading(false));
   };
 
-  return {
-    meta,
-    isLoading,
-    getFilms,
-    films
-  };
+  return { meta, isLoading, getFilms, films };
 };
 
 export default useFilms;

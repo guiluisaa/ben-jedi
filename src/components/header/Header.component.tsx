@@ -10,8 +10,8 @@ const Container = styled(Layout.Header)`
 `;
 
 const Content = styled.div`
-  padding: ${props => `0 ${props.theme.layout.padding.x}`};
-  max-width: ${({ theme }) => theme.layout.maxWidth};
+  padding: ${({ theme: { layout } }) => `0 ${layout.padding.x}`};
+  max-width: ${({ theme: { layout } }) => layout.maxWidth};
   margin: 0 auto;
 `;
 

@@ -11,6 +11,6 @@ type PlanetComponentProps = {
 const PlanetComponent: FunctionComponent<PlanetComponentProps> = ({
   planet,
   isLoading
-}) => <>{isLoading ? <Spin size="small" /> : planet ? planet.name : ''}</>;
+}) => <>{isLoading ? <Spin size="small" /> : planet ? planet.name : '-'}</>;
 
 export default PlanetComponent;

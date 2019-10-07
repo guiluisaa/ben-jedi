@@ -9,7 +9,6 @@ const LogoImage = styled.img.attrs({ src: logo })`
   vertical-align: bottom;
   width: 64px;
   height: 64px;
-
   padding: 5px;
 `;
 
