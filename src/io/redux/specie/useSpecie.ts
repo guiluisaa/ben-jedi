@@ -25,7 +25,7 @@ const useSpecie = (specieId: number) => {
 
     api
       .get(`/species/${specieId}`)
-      .then(res => res.data)
+      .then(({ data }) => data)
       .then(data => {
         dispatch({
           type: GET_SPECIE,

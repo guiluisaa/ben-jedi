@@ -24,10 +24,7 @@ const filmsToData = (films: Film[]) => {
     }
   ];
 
-  return {
-    labels,
-    datasets
-  };
+  return { labels, datasets };
 };
 
 const Dashboard: FunctionComponent = () => {
@@ -41,7 +38,7 @@ const Dashboard: FunctionComponent = () => {
   return (
     <DashboardComponent
       filmsData={filmsData}
-      isLoading={isLoading && !films.length ? true : false}
+      isLoading={isLoading && !films.length}
     />
   );
 };

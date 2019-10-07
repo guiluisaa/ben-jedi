@@ -25,12 +25,8 @@ const useCharacters = () => {
     setIsLoading(true);
 
     api
-      .get('/people', {
-        params: {
-          page
-        }
-      })
-      .then(res => res.data)
+      .get('/people', { params: { page } })
+      .then(({ data }) => data)
       .then(data => {
         const { page: previous } = fromUrlToQuery(
           data.previous ? data.previous : '',
@@ -58,12 +54,7 @@ const useCharacters = () => {
       .finally(() => setIsLoading(false));
   };
 
-  return {
-    meta,
-    isLoading,
-    getCharacters,
-    characters
-  };
+  return { meta, isLoading, getCharacters, characters };
 };
 
 export default useCharacters;
