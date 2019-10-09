@@ -57,10 +57,7 @@ module.exports = env => {
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
-            options: {
-              cacheDirectory: true,
-              babelrc: true
-            }
+            options: { cacheDirectory: true, babelrc: true }
           }
         },
         { test: /\.css$/, loader: 'style-loader' },
@@ -71,6 +68,7 @@ module.exports = env => {
         }
       ]
     },
+
     plugins: [
       new CleanWebpackPlugin(),
       new webpack.DefinePlugin(envKeys),
