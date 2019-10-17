@@ -12,7 +12,10 @@ const composeOptions = [applyMiddleware(...middleware)];
 const reduxDevTools =
   (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
   (window as any).__REDUX_DEVTOOLS_EXTENSION__();
-if (process.env.ENVIRONMENT !== 'production')
+if (
+  (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
+  process.env.ENVIRONMENT !== 'production'
+)
   composeOptions.push(reduxDevTools);
 
 const persistConfig: PersistConfig = {
