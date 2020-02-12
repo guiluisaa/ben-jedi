@@ -8,7 +8,7 @@
   "typings": "dist/main.d.ts",
   "scripts": {
     "pre-build": "chmod +x ./scripts/**/*.sh",
-    "build": "scripty",
+    "build": "webpack --mode production --env.ENVIRONMENT=production --config ./webpack.config.js",
     "start:local": "scripty",
     "test:unit": "scripty",
     "test:unit:coverage": "scripty",
