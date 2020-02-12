@@ -21,3 +21,5 @@ lerna-debug.log
 **/*/package-lock.json
 package-lock.json
 yarn-error.log
+
+.now
