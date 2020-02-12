@@ -9,7 +9,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = env => {
   console.log(env.ENVIRONMENT);
   // Define the environment file path
-  const envPath = path.join(__dirname, `./config/.env.production`);
+  console.log(path.join(__dirname, `./config/.env.production`));
 
   // Start DotEnv
   const envVariables = dotenv.config({ path: envPath }).parsed;
