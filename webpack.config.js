@@ -7,10 +7,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = env => {
-  console.log(env);
-
   // Define the environment file path
-  const envPath = path.join(__dirname, `./config/.env.${env.ENVIRONMENT}`);
+  const envPath = path.join(__dirname, 'config', `.env.${env.ENVIRONMENT}`);
 
   // Start DotEnv
   const envVariables = dotenv.config({ path: envPath }).parsed;
@@ -24,12 +22,12 @@ module.exports = env => {
   // Returns the Webpack Object
   return {
     entry: {
-      app: './src/index.tsx'
+      app: 'src/index.tsx'
     },
     output: {
       filename: 'bundle.js',
       publicPath: '/',
-      path: path.join(__dirname, './dist')
+      path: path.join(__dirname, 'dist')
     },
 
     // Enable sourcemaps for debugging webpack's output.
@@ -37,7 +35,7 @@ module.exports = env => {
 
     // Dev server options
     devServer: {
-      contentBase: path.join(__dirname, './dist'),
+      contentBase: path.join(__dirname, 'dist'),
       port: 4200,
       inline: true,
       hot: true,
@@ -48,7 +46,7 @@ module.exports = env => {
       extensions: ['.ts', '.tsx', '.js', '.json'],
       alias: {
         'react-dom': '@hot-loader/react-dom',
-        '@': path.join(__dirname, './src')
+        '@': path.join(__dirname, 'src')
       }
     },
 
@@ -75,16 +73,16 @@ module.exports = env => {
       new CleanWebpackPlugin(),
       new webpack.DefinePlugin(envKeys),
       new HtmlWebpackPlugin({
-        template: path.join(__dirname, './public', 'index.html'),
-        favicon: path.join(__dirname, './public', 'favicon.png')
+        template: path.join(__dirname, 'public', 'index.html'),
+        favicon: path.join(__dirname, 'public', 'favicon.png')
       }),
       new ForkTsCheckerWebpackPlugin({
-        tsconfig: path.resolve(__dirname, './tsconfig.build.json')
+        tsconfig: path.resolve(__dirname, 'tsconfig.build.json')
       }),
       new CopyPlugin([
         {
-          from: path.join(__dirname, './public/locales'),
-          to: path.join(__dirname, './dist/locales')
+          from: path.join(__dirname, 'public', 'locales'),
+          to: path.join(__dirname, 'dist', 'locales')
         }
       ])
     ]
