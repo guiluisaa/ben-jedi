@@ -7,12 +7,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = env => {
-  console.log(env.ENVIRONMENT);
+  const environment = env.ENVIRONMENT;
+
   // Define the environment file path
-  const envPath = path.join(__dirname, `./config/.env.production`);
+  const envPath = path.join(__dirname, `./config/.env.${environment}`);
 
   // Start DotEnv
-  const envVariables = dotenv.config({ path: envPath }).parsed;
+  const envVariables = dotenv.config({ path: envPath }).parsed || process.env;
 
   // Convert Environment Variables -> Object
   const envKeys = Object.keys(envVariables).reduce((prev, next) => {
