@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import Characters from '@/containers/characters/Characters.container';
+import Characters from '@/components/characters/Characters.component';
 
 const CharactersView: FC = () => <Characters />;
 
