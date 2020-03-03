@@ -1,62 +1,30 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Typography, Table } from 'antd';
-import { ColumnProps } from 'antd/lib/table';
+import { useHistory, useLocation } from 'react-router-dom';
+import { parse } from 'query-string';
 
-import { Character } from '@/io/redux/character/character.types';
-import { Meta } from '@/io/redux/meta/meta.types';
-import Planet from '@/containers/planet/Planet.container';
-import Specie from '@/containers/specie/Specie.container';
+import useCharacters from '@/io/redux/character/useCharacters';
+import useCharactersColumns from './useCharactersColumns.hook';
 
-type CharactersComponentProps = {
-  isLoading: boolean;
-  characters: Character[];
-  meta: Meta;
-  changePage: (page: number) => void;
-};
-
-const CharactersComponent: FC<CharactersComponentProps> = ({
-  isLoading,
-  characters,
-  meta,
-  changePage
-}) => {
+const Characters: FC = () => {
   const [t] = useTranslation();
+  const history = useHistory();
+  const { search } = useLocation();
+  const columns = useCharactersColumns();
 
-  const columns: ColumnProps<Character>[] = [
-    {
-      title: 'ID',
-      dataIndex: 'id',
-      key: 'id'
-    },
-    {
-      title: t('characters:table.name'),
-      dataIndex: 'name'
-    },
-    {
-      title: t('characters:table.height'),
-      dataIndex: 'height'
-    },
-    {
-      title: t('characters:table.gender'),
-      dataIndex: 'gender'
-    },
-    {
-      title: t('characters:table.birth_year'),
-      dataIndex: 'birth_year'
-    },
-    {
-      title: t('characters:table.homeworld'),
-      dataIndex: 'homeworld',
-      render: (planetId: number) => <Planet planetId={planetId} />
-    },
-    {
-      title: t('characters:table.species'),
-      dataIndex: 'species',
-      render: (species: number[]) =>
-        species.map(specie => <Specie key={specie} specieId={specie} />)
-    }
-  ];
+  const { page } = parse(search);
+  const { getCharacters, characters, meta, isLoading } = useCharacters();
+
+  useEffect(() => {
+    getCharacters(page && Number(page) ? Number(page) : 1);
+  }, []);
+
+  const changePage = (page: number) =>
+    history.push({
+      pathname: '/characters',
+      search: `?page=${page}`
+    });
 
   return (
     <>
@@ -81,4 +49,4 @@ const CharactersComponent: FC<CharactersComponentProps> = ({
   );
 };
 
-export default CharactersComponent;
+export default Characters;
