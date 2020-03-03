@@ -1,11 +1,11 @@
-import React, { FunctionComponent, useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { parse } from 'query-string';
 
 import CharactersComponent from '@/components/characters/Characters.component';
 import useCharacters from '@/io/redux/character/useCharacters';
 
-const Characters: FunctionComponent = () => {
+const Characters: FC = () => {
   const history = useHistory();
   const { search } = useLocation();
 

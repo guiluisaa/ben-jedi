@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { Menu as AntMenu } from 'antd';
@@ -12,7 +12,7 @@ const Container = styled(AntMenu).attrs({
   display: inline-block;
 `;
 
-const Menu: FunctionComponent = () => {
+const Menu: FC = () => {
   const [t] = useTranslation();
   const { pathname } = useLocation();
 

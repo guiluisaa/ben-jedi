@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import { Typography, Spin } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { ChartData, HorizontalBar } from 'react-chartjs-2';
@@ -8,7 +8,7 @@ type DashboardComponentProps = {
   isLoading: boolean;
 };
 
-const DashboardComponent: FunctionComponent<DashboardComponentProps> = ({
+const DashboardComponent: FC<DashboardComponentProps> = ({
   filmsData,
   isLoading
 }) => {

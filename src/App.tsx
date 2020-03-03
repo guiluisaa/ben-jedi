@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Provider } from 'react-redux';
 import { hot } from 'react-hot-loader';
 import { ThemeProvider } from 'styled-components';
@@ -8,7 +8,7 @@ import { store, persistor } from './io/redux/store';
 import theme from './theme';
 import Routes from './containers/router/Routes.container';
 
-const App: React.FunctionComponent = () => (
+const App: FC = () => (
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <ThemeProvider theme={theme}>

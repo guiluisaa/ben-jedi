@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Typography, Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
@@ -15,7 +15,7 @@ type CharactersComponentProps = {
   changePage: (page: number) => void;
 };
 
-const CharactersComponent: FunctionComponent<CharactersComponentProps> = ({
+const CharactersComponent: FC<CharactersComponentProps> = ({
   isLoading,
   characters,
   meta,

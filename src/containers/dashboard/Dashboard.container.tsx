@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 
 import DashboardComponent from '@/components/dashboard/Dashboard.component';
 import useFilms from '@/io/redux/film/useFilms';
@@ -27,7 +27,7 @@ const filmsToData = (films: Film[]) => {
   return { labels, datasets };
 };
 
-const Dashboard: FunctionComponent = () => {
+const Dashboard: FC = () => {
   const { getFilms, films, isLoading } = useFilms();
   const filmsData = filmsToData(films);
 

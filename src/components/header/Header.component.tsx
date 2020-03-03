@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Layout } from 'antd';
 
@@ -15,7 +15,7 @@ const Content = styled.div`
   margin: 0 auto;
 `;
 
-const Header: FunctionComponent = () => (
+const Header: FC = () => (
   <Container>
     <Content>
       <Logo />

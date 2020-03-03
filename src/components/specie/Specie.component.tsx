@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import { Spin, Tag } from 'antd';
 
 import { Specie } from '@/io/redux/specie/specie.types';
@@ -8,10 +8,7 @@ type SpecieComponentProps = {
   isLoading: boolean;
 };
 
-const SpecieComponent: FunctionComponent<SpecieComponentProps> = ({
-  specie,
-  isLoading
-}) => (
+const SpecieComponent: FC<SpecieComponentProps> = ({ specie, isLoading }) => (
   <Tag>{isLoading ? <Spin size="small" /> : specie ? specie.name : ''}</Tag>
 );
 
