@@ -6,7 +6,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import { store, persistor } from './io/redux/store';
 import theme from './theme';
-import Routes from './containers/router/Routes.container';
+import Routes from './components/routes/Routes.component';
 
 const App: FC = () => (
   <Provider store={store}>
