@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Layout as AntLayout } from 'antd';
 
@@ -19,7 +19,7 @@ const Content = styled.div`
   margin: 0 auto;
 `;
 
-const Layout: FunctionComponent = ({ children }) => (
+const Layout: FC = ({ children }) => (
   <AntLayout style={{ minHeight: '100vh' }}>
     <Header />
     <Container>

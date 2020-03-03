@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ const LogoImage = styled.img.attrs({ src: logo })`
   padding: 5px;
 `;
 
-const Logo: FunctionComponent = () => (
+const Logo: FC = () => (
   <Link to="/">
     <LogoImage />
   </Link>

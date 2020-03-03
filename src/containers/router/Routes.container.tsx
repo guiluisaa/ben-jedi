@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import toLoadable from '@/components/loadable/toLoadable';
@@ -13,7 +13,7 @@ const CharactersView = toLoadable(() =>
   import('@/views/characters/Characters.view')
 );
 
-const Routes: FunctionComponent = () => (
+const Routes: FC = () => (
   <Router>
     <Switch>
       <Layout>

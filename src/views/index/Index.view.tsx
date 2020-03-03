@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import { Redirect } from 'react-router-dom';
 
-const IndexView: FunctionComponent = () => <Redirect to="/dashboard" />;
+const IndexView: FC = () => <Redirect to="/dashboard" />;
 
 export default IndexView;
