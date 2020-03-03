@@ -1,15 +1,20 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { Spin } from 'antd';
 
-import { Planet } from '@/io/redux/planet/planet.types';
+import usePlanet from '@/io/redux/planet/usePlanet';
 
-type PlanetComponentProps = {
-  planet: Planet;
-  isLoading: boolean;
+type PlanetProps = {
+  planetId: number;
 };
 
-const PlanetComponent: FC<PlanetComponentProps> = ({ planet, isLoading }) => (
-  <>{isLoading ? <Spin size="small" /> : planet ? planet.name : '-'}</>
-);
+const Planet: FC<PlanetProps> = ({ planetId }) => {
+  const { planet, isLoading, getPlanet } = usePlanet(planetId);
 
-export default PlanetComponent;
+  useEffect(() => {
+    getPlanet();
+  }, []);
+
+  return <>{isLoading ? <Spin size="small" /> : planet ? planet.name : '-'}</>;
+};
+
+export default Planet;

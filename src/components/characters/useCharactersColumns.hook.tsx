@@ -3,7 +3,7 @@ import { ColumnProps } from 'antd/lib/table';
 import { useTranslation } from 'react-i18next';
 
 import { Character } from '@/io/redux/character/character.types';
-import Planet from '@/containers/planet/Planet.container';
+import Planet from '@/components/planet/Planet.component';
 import Specie from '@/containers/specie/Specie.container';
 
 const useCharactersColumns = () => {
