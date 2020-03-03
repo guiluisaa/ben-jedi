@@ -1,15 +1,19 @@
 import React, { FC } from 'react';
 import { Spin, Tag } from 'antd';
 
-import { Specie } from '@/io/redux/specie/specie.types';
+import SpecieComponent from '@/components/specie/Specie.component';
+import useSpecie from '@/io/redux/specie/useSpecie';
 
-type SpecieComponentProps = {
-  specie: Specie;
-  isLoading: boolean;
+type SpecieProps = {
+  specieId: number;
 };
 
-const SpecieComponent: FC<SpecieComponentProps> = ({ specie, isLoading }) => (
-  <Tag>{isLoading ? <Spin size="small" /> : specie ? specie.name : ''}</Tag>
-);
+const Specie: FC<SpecieProps> = ({ specieId }) => {
+  const { specie, isLoading } = useSpecie(specieId);
 
-export default SpecieComponent;
+  return (
+    <Tag>{isLoading ? <Spin size="small" /> : specie ? specie.name : ''}</Tag>
+  );
+};
+
+export default Specie;

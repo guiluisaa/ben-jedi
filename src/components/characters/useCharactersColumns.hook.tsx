@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Character } from '@/io/redux/character/character.types';
 import Planet from '@/components/planet/Planet.component';
-import Specie from '@/containers/specie/Specie.container';
+import Specie from '@/components/specie/Specie.component';
 
 const useCharactersColumns = () => {
   const [t] = useTranslation();
