@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import Dashboard from '@/containers/dashboard/Dashboard.container';
+import Dashboard from '@/components/dashboard/Dashboard.component';
 
 const DashboardView: FC = () => <Dashboard />;
 
