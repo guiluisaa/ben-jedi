@@ -64,7 +64,7 @@
     "@types/react-test-renderer": "^16.8.1",
     "@types/storybook__react": "^4.0.2",
     "@types/styled-components": "^4.1.16",
-    "acorn": "^6.1.1",
+    "acorn": "^6.4.1",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-import": "^1.13.0",
