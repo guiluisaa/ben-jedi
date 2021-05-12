@@ -21,7 +21,7 @@
     "antd": "^3.19.2",
     "axios": "^0.19.0",
     "babel-plugin-idx": "^2.4.0",
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "concurrently": "^4.1.0",
     "debounce": "^1.2.0",
     "idx": "^2.5.6",
