@@ -25,7 +25,7 @@
     "concurrently": "^4.1.0",
     "debounce": "^1.2.0",
     "idx": "^2.5.6",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "query-string": "^6.8.1",
     "react": "^16.8.6",
     "react-chartjs-2": "^2.7.6",
